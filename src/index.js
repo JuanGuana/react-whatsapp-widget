@@ -9,7 +9,8 @@ export default function WhatsAppWidget({
   message = `Hello! 👋🏼 \n\nWhat can we do for you?`,
   companyName = 'Support',
   sendButton = 'Send',
-  phoneNumber
+  phoneNumber,
+  callback
 }) {
   return (
     <div className={styles.root}>
@@ -20,6 +21,7 @@ export default function WhatsAppWidget({
           phoneNumber={phoneNumber}
           sendButton={sendButton}
           message={message}
+          callback={callback}
         />
         <WhatsAppButton />
       </WidgetContextProvider>

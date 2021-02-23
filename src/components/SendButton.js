@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './SendButton.module.css'
 
-export default function SendButton({ sendButton, phoneNumber }) {
+export default function SendButton({ sendButton, phoneNumber, callback }) {
   const [message, setMessage] = useState('')
 
   const handleSend = () => {
@@ -9,6 +9,7 @@ export default function SendButton({ sendButton, phoneNumber }) {
       window.alert('Invalid Phone Number')
       return false
     }
+    if (typeof callback === 'function') callback()
     window.open(`https://wa.me/${phoneNumber}?text=${message}`)
     setMessage('')
   }
